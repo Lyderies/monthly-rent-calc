@@ -1,21 +1,23 @@
 // components
 import Fortnight from "./components/calculation/Fortnight";
-import Month from "./components/calculation/Month";
+import Month from "./components/calculation/month/Month";
 import Week from "./components/calculation/Week";
 
 function App() {
   // testing variables for week component, temporary
-  const rent = 225;
+  const weeklyRent = 225;
+  const fortnightlyRent = 450;
+  const monthlyRent = 900;
   const getDate = new Date();
 
   return (
     <div className="App">
       This is weekly: <br />
-      <Week amount={rent} date={getDate} />
+      <Week amount={weeklyRent} date={getDate} />
       This is fortnightly: <br />
-      <Fortnight amount={rent} date={getDate} />
+      <Fortnight amount={fortnightlyRent} date={getDate} />
       This is monthly: <br />
-      <Month amount={rent} date={getDate} />
+      <Month amount={monthlyRent} date={getDate} />
     </div>
   );
 }

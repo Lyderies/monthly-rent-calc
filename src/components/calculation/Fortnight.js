@@ -6,7 +6,7 @@ const Fortnight = (props) => {
   const { date, amount } = props;
 
   // converts rent amount into variable
-  const weekAmount = amount * 2;
+  const fortnightAmount = amount;
   // adds 7 days to passed in date
   const newDate = addDays(date, 14);
   // formats date for easier reading
@@ -15,7 +15,7 @@ const Fortnight = (props) => {
   return (
     <div>
       <section>
-        <p>Your rent amount is: ${weekAmount}</p>
+        <p>Your rent amount is: ${fortnightAmount}</p>
         <p>Your next rent payment is: {formattedDate}</p>
       </section>
     </div>
