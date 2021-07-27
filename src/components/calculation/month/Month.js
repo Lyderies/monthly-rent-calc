@@ -2,6 +2,7 @@ import React from "react";
 import addDays from "date-fns/addDays";
 import { format } from "date-fns";
 import WhatDay, { theDay } from "./WhatDay";
+import FindMonthAmount, { monthAmount } from "./FindMonthAmount";
 
 // month component will need to work out if next rent payment is under 4 weeks add 1 more week,
 // above scenario -- if rent goes out on fridays, in 4 weeks it lands on a day that is not a friday add
@@ -14,9 +15,6 @@ const Month = (props) => {
   // variable from input, rent cost for the month
   const monthlyRent = amount;
 
-  // variable for total month amount, can change from 4 weeks to five weeks
-  let monthAmount = 0;
-
   // adds 28 days to passed date -- new date now used to find out true date
   const newDate = addDays(date, 28);
 
@@ -25,12 +23,8 @@ const Month = (props) => {
   // find which day newDay is and turn it into a string
   WhatDay(newDay, theDay);
 
-  console.log("This is calling whatDay to find out theDay: ", theDay);
-
-  const findTrueDate = () => {
-    if (theDay === "friday") {
-    }
-  };
+  // find the months rent amount
+  FindMonthAmount(monthlyRent, monthAmount);
 
   // formats date for easier reading -- will format true date
   const formattedDate = format(newDate, "dd/MM/yyyy");
