@@ -3,7 +3,7 @@ export let theDay = "";
 
 // after days are added, find which day the new date is and turn it into a string
 // exported to parent function Month
-function WhatDay(newDay) {
+const WhatDay = (newDay) => {
   // turn newDay into a string
   switch (newDay) {
     case 0:
@@ -32,6 +32,6 @@ function WhatDay(newDay) {
         "Ooops, something broke in WhatDay function, an incorrect date was added to the app"
       );
   }
-}
+};
 
 export default WhatDay;
