@@ -2,8 +2,10 @@ import React from "react";
 import addDays from "date-fns/addDays";
 import { format } from "date-fns";
 
-// month component will need to work out if next rent payment is under 4 weeks add 1 more week
-// future functionality for calculation for added months -- future code!
+// month component will need to work out if next rent payment is under 4 weeks add 1 more week,
+// above scenario -- if rent goes out on fridays, in 4 weeks it lands on a day that is not a friday add
+// enough days to make it go to nex friday
+// functionality for calculation for added months -- future code!
 
 const Month = (props) => {
   const { date, amount } = props;
