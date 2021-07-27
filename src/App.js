@@ -1,4 +1,5 @@
 // components
+import Fortnight from "./components/calculation/Fortnight";
 import Week from "./components/calculation/Week";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Week amount={rent} date={getDate} />
+      <Fortnight amount={rent} date={getDate} />
     </div>
   );
 }
