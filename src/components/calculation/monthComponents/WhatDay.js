@@ -1,5 +1,5 @@
 // var to be set from function whatDay, exported to parent function Month
-export let theDay = "";
+export let theDay;
 
 // after days are added, find which day the new date is and turn it into a string
 // exported to parent function Month
@@ -28,9 +28,9 @@ const WhatDay = (newDay) => {
       theDay = "saturday";
       break;
     default:
-      console.log(
-        "Ooops, something broke in WhatDay function, an incorrect date was added to the app"
-      );
+    // console.log(
+    //   "Ooops, something broke in WhatDay function, an incorrect date was added to the app"
+    // );
   }
 };
 

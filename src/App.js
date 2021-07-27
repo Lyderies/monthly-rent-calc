@@ -1,6 +1,8 @@
+// import addDays from "date-fns/addDays"; // for testing only
+
 // components
 import Fortnight from "./components/calculation/Fortnight";
-import Month from "./components/calculation/month/Month";
+import Month from "./components/calculation/Month";
 import Week from "./components/calculation/Week";
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
   const fortnightlyRent = 450;
   const monthlyRent = 900;
   const getDate = new Date();
+  // const testDate = addDays(getDate, 10); // test date for month
 
   return (
     <div className="App">
