@@ -6,11 +6,13 @@ const Week = (props) => {
   const { date, amount } = props;
 
   // converts rent amount into variable
-  const weekAmount = amount;
+  const weekAmount = amount * 1;
   // adds 7 days to passed in date
   const newDate = addDays(date, 7);
   // formats date for easier reading
   const formattedDate = format(newDate, "dd/MM/yyyy");
+
+  console.log("Weekly rent is ", weekAmount);
 
   return (
     <div>

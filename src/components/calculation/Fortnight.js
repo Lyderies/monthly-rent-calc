@@ -15,7 +15,7 @@ const Fortnight = (props) => {
   return (
     <div>
       <section>
-        <p>Your rent amount is: ${fortnightAmount}</p>
+        <p>Your rent amount is: ${fortnightAmount.toFixed(2)}</p>
         <p>Your next rent payment is: {formattedDate}</p>
       </section>
     </div>

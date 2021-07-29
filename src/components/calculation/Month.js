@@ -38,7 +38,7 @@ const Month = (props) => {
   return (
     <div>
       <section>
-        <p>Your rent amount is: ${monthAmount}</p>
+        <p>Your rent amount is: ${monthAmount.toFixed(2)}</p>
         <p>Your next rent payment is: {formattedDate}</p>
       </section>
     </div>
