@@ -28,9 +28,9 @@ const WhatDay = (newDay) => {
       theDay = "saturday";
       break;
     default:
-      console.log(
-        "Ooops, something broke in WhatDay function, an incorrect date was added to the app"
-      );
+    // console.log(
+    //   "Ooops, something broke in WhatDay function, an incorrect date was added to the app"
+    // );
   }
 };
 

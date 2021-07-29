@@ -5,10 +5,10 @@ export let monthAmount = 0;
 const FindMonthAmount = (monthlyRent, theDay) => {
   if (theDay === "friday") {
     monthAmount = monthlyRent * 4;
-    console.log("It did land on a Friday");
+    // console.log("It did land on a Friday");
   } else {
     monthAmount = monthlyRent * 5;
-    console.log("It did not land on a Friday, monthAmount x 5");
+    // console.log("It did not land on a Friday, monthAmount x 5");
   }
 };
 

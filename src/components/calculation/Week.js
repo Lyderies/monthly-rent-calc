@@ -12,12 +12,12 @@ const Week = (props) => {
   // formats date for easier reading
   const formattedDate = format(newDate, "dd/MM/yyyy");
 
-  console.log("Weekly rent is ", weekAmount);
+  // console.log("Weekly rent is ", weekAmount);
 
   return (
     <div>
       <section>
-        <p>Your rent amount is: ${weekAmount}</p>
+        <p>Your rent amount is: ${weekAmount.toFixed(2)}</p>
         <p>Your next rent payment is: {formattedDate}</p>
       </section>
     </div>
