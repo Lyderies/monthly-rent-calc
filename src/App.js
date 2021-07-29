@@ -1,42 +1,60 @@
 // import addDays from "date-fns/addDays"; // for testing only
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 // components
 // import Fortnight from "./components/calculation/Fortnight";
 // import Month from "./components/calculation/Month";
 // import Week from "./components/calculation/Week";
 
+const defaultValues = {
+  ReactDatepicker: new Date(),
+};
+
 function App() {
   // testing variables for week component, temporary
   // const weeklyRent = 225;
-  // const fortnightlyRent = 450;
-  // const monthlyRent = 900;
   // const getDate = new Date();
   // const testDate = addDays(getDate, 10); // test date for month
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { handleSubmit, control, setValue } = useForm({ defaultValues });
+  const [data, setData] = useState(null);
+
+  const onSubmit = (data) => setData(data);
+
+  console.log("This is the data from the form ", data);
 
   return (
     <div className="App">
-      <h1>Rent Calculator</h1>
-      <p>Welcome to the rent calculator</p>'
-      <div>
+      <section>
+        <h1>Rent Calculator</h1>
+        <p>Welcome to the rent calculator</p>
+      </section>
+      <section>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            {...register("firstName", { required: true, maxLength: 20 })}
+          <Controller
+            control={control}
+            name="ReactDatepicker"
+            render={({ field: { onChange, value, ref } }) => (
+              <ReactDatePicker
+                className="border-4 border-black"
+                dateFormat="dd/MM/yyyy"
+                onChange={onChange}
+                selected={value}
+              />
+            )}
           />
-          <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
-          <input type="number" {...register("age", { min: 18, max: 99 })} />
           <input type="submit" />
         </form>
-      </div>
+      </section>
       {/* This is weekly: <br />
       <Week amount={weeklyRent} date={getDate} />
       This is fortnightly: <br />
-      <Fortnight amount={fortnightlyRent} date={getDate} />
+      <Fortnight amount={weeklyRent} date={getDate} />
       This is monthly: <br />
-      <Month amount={monthlyRent} date={getDate} /> */}
+      <Month amount={weeklyRent} date={getDate} /> */}
     </div>
   );
 }

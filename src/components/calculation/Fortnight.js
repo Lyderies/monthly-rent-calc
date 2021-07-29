@@ -6,7 +6,7 @@ const Fortnight = (props) => {
   const { date, amount } = props;
 
   // converts rent amount into variable
-  const fortnightAmount = amount;
+  const fortnightAmount = amount * 2;
   // adds 7 days to passed in date
   const newDate = addDays(date, 14);
   // formats date for easier reading
