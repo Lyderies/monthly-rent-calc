@@ -53,21 +53,27 @@ function Form() {
     if (selectedOption.value === 1) {
       return (
         <div className="p-1">
-          <h2>Fortnightly Rent amount and due date: </h2>
+          <h2 className="font-bold font-xl">
+            Fortnightly Rent amount and due date:{" "}
+          </h2>
           <Fortnight amount={data.NumberFormat} date={data.ReactDatePicker} />
         </div>
       );
     } else if (selectedOption.value === 2) {
       return (
         <div className="p-1">
-          <h2>Monthly Rent amount and due date: </h2>
+          <h2 className="font-bold font-xl">
+            Monthly Rent amount and due date:{" "}
+          </h2>
           <Month amount={data.NumberFormat} date={data.ReactDatePicker} />
         </div>
       );
     } else {
       return (
         <div className="p-1">
-          <h2>Weekly Rent amount and due date: </h2>
+          <h2 className="font-bold font-xl">
+            Weekly Rent amount and due date:{" "}
+          </h2>
           <Week amount={data.NumberFormat} date={data.ReactDatePicker} />
         </div>
       );
