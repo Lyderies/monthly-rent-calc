@@ -52,34 +52,40 @@ function Form() {
   const findRentDateAmount = (data, selectedOption) => {
     if (selectedOption.value === 1) {
       return (
-        <>
-          <h2>Fortnightly Rent amount and due date: </h2>
+        <div className="p-1">
+          <h2 className="font-bold font-xl">
+            Fortnightly Rent amount and due date:{" "}
+          </h2>
           <Fortnight amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </>
+        </div>
       );
     } else if (selectedOption.value === 2) {
       return (
-        <>
-          <h2>Monthly Rent amount and due date: </h2>
+        <div className="p-1">
+          <h2 className="font-bold font-xl">
+            Monthly Rent amount and due date:{" "}
+          </h2>
           <Month amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </>
+        </div>
       );
     } else {
       return (
-        <>
-          <h2>Weekly Rent amount and due date: </h2>
+        <div className="p-1">
+          <h2 className="font-bold font-xl">
+            Weekly Rent amount and due date:{" "}
+          </h2>
           <Week amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </>
+        </div>
       );
     }
   };
 
   //   console.log("This is the data from the form ", selectedOption.value);
   return (
-    <div className="">
+    <div className="font-Rubik place-items-center text-center">
       <section>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <section className="">
+          <section className="p-1 ">
             <label>What is your rental payment?</label>
             {/* Controller for rent payment time - remove comment for production */}
             <Controller
@@ -94,7 +100,7 @@ function Form() {
               )}
             />
           </section>
-          <section>
+          <section className="">
             <label>Please insert your next rent payment</label>
             {/* Controller for dates - remove comment for production */}
             <Controller
@@ -105,7 +111,7 @@ function Form() {
               }}
               render={({ field: { onChange, value, ref } }) => (
                 <ReactDatePicker
-                  className="border-4 border-black text-center p-2 rounded-md m-2"
+                  className="border-4 border-black text-center p-2 rounded-md m-2 cursor-pointer"
                   dateFormat="dd/MM/yyyy"
                   onChange={onChange}
                   selected={value}
@@ -116,7 +122,7 @@ function Form() {
               <p className="">This is required</p>
             )}
           </section>
-          <section>
+          <section className="p-1">
             <label>Please enter your weekly rent payment</label>
             {/* Controller for rent money amount - remove comment for production */}
             <Controller
@@ -138,12 +144,17 @@ function Form() {
               <p className="">This is required</p>
             )}
           </section>
-          <section>
-            <input className="" type="submit" />
+          <section className="p-1">
+            <input
+              className="border-2 border-black p-2 m-1 cursor-pointer rounded-md w-2/3 font-bold"
+              type="submit"
+            />
           </section>
         </form>
       </section>
-      <section>{findRentDateAmount(data, selectedOption)}</section>
+      <section className="p-2">
+        {findRentDateAmount(data, selectedOption)}
+      </section>
     </div>
   );
 }
