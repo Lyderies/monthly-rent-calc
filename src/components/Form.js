@@ -100,7 +100,7 @@ function Form() {
               )}
             />
           </section>
-          <section className="cursor-pointer">
+          <section className="">
             <label>Please insert your next rent payment</label>
             {/* Controller for dates - remove comment for production */}
             <Controller
