@@ -9,7 +9,33 @@
 import React from "react";
 
 const List = () => {
-  return <div></div>;
+  const testList = [
+    {
+      amount: 450,
+      date: "24/09/2021",
+    },
+    {
+      amount: 450,
+      date: "08/10/2021",
+    },
+    {
+      amount: 450,
+      date: "22/10/2021",
+    },
+  ];
+
+  const listItems = testList.map((month) => {
+    return (
+      <div>
+        <li>Amount: {month.amount}</li>
+        <li>Date: {month.date}</li>
+      </div>
+    );
+  });
+
+  return (
+    <div className="font-Rubik place-items-center text-center">{listItems}</div>
+  );
 };
 
 export default List;
