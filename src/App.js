@@ -15,7 +15,7 @@ function App() {
       <section className="container mx-auto m-2 p-2">
         <Form />
       </section>
-      <section className="container mx-auto m-2 p-2">
+      <section className="mx-auto m-2 p-2">
         <List />
       </section>
     </div>

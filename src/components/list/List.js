@@ -11,14 +11,17 @@ import React from "react";
 const List = () => {
   const testList = [
     {
+      key: 0,
       amount: 450,
       date: "24/09/2021",
     },
     {
+      key: 1,
       amount: 450,
       date: "08/10/2021",
     },
     {
+      key: 2,
       amount: 450,
       date: "22/10/2021",
     },
@@ -26,15 +29,20 @@ const List = () => {
 
   const listItems = testList.map((month) => {
     return (
-      <div>
-        <li>Amount: {month.amount}</li>
-        <li>Date: {month.date}</li>
+      <div className="p-1 m-1 border-2 border-black rounded-md">
+        <ul>
+          <li>Rent Payment: {month.key + 1}</li>
+          <li>Amount: {month.amount}</li>
+          <li>Date: {month.date}</li>
+        </ul>
       </div>
     );
   });
 
   return (
-    <div className="font-Rubik place-items-center text-center">{listItems}</div>
+    <div className="font-Rubik place-items-center text-center flex flex-wrap">
+      {listItems}
+    </div>
   );
 };
 
