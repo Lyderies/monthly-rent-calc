@@ -8,9 +8,9 @@ import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css"; // automatic styling for the date picker
 
 // components
-import Fortnight from "./calculation/Fortnight";
-import Month from "./calculation/Month";
-import Week from "./calculation/Week";
+// import Fortnight from "./calculation/Fortnight";
+// import Month from "./calculation/Month";
+// import Week from "./calculation/Week";
 import CreateList from "./list/CreateList";
 
 // will set the default value for date picker to users current date
@@ -67,37 +67,39 @@ function Form() {
     CreateList(data, paymentSelectedOption, functionSelectedOption);
   };
 
-  // renders component based on which option is selected
-  const findRentDateAmount = (data, paymentSelectedOption) => {
-    if (paymentSelectedOption.value === 1) {
-      return (
-        <div className="p-1">
-          <h2 className="font-bold font-xl">
-            Fortnightly Rent amount and due date:{" "}
-          </h2>
-          <Fortnight amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </div>
-      );
-    } else if (paymentSelectedOption.value === 2) {
-      return (
-        <div className="p-1">
-          <h2 className="font-bold font-xl">
-            Monthly Rent amount and due date:{" "}
-          </h2>
-          <Month amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </div>
-      );
-    } else {
-      return (
-        <div className="p-1">
-          <h2 className="font-bold font-xl">
-            Weekly Rent amount and due date:{" "}
-          </h2>
-          <Week amount={data.NumberFormat} date={data.ReactDatePicker} />
-        </div>
-      );
-    }
-  };
+  console.log("Form Data is: ", data);
+
+  // // renders component based on which option is selected
+  // const findRentDateAmount = (data, paymentSelectedOption) => {
+  //   if (paymentSelectedOption.value === 1) {
+  //     return (
+  //       <div className="p-1">
+  //         <h2 className="font-bold font-xl">
+  //           Fortnightly Rent amount and due date:{" "}
+  //         </h2>
+  //         <Fortnight amount={data.NumberFormat} date={data.ReactDatePicker} />
+  //       </div>
+  //     );
+  //   } else if (paymentSelectedOption.value === 2) {
+  //     return (
+  //       <div className="p-1">
+  //         <h2 className="font-bold font-xl">
+  //           Monthly Rent amount and due date:{" "}
+  //         </h2>
+  //         <Month amount={data.NumberFormat} date={data.ReactDatePicker} />
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <div className="p-1">
+  //         <h2 className="font-bold font-xl">
+  //           Weekly Rent amount and due date:{" "}
+  //         </h2>
+  //         <Week amount={data.NumberFormat} date={data.ReactDatePicker} />
+  //       </div>
+  //     );
+  //   }
+  // };
 
   //   console.log("This is the data from the form ", paymentSelectedOption.value);
   return (
@@ -164,7 +166,7 @@ function Form() {
             )}
           </section>
           <section className="p-1 ">
-            <label>What is your rental payment?</label>
+            <label>How many rental payments would you like worked out?</label>
             {/* Controller for CreateList function - remove comment for production */}
             <Controller
               control={control}
@@ -187,9 +189,9 @@ function Form() {
           </section>
         </form>
       </section>
-      <section className="p-2">
+      {/* <section>
         {findRentDateAmount(data, paymentSelectedOption)}
-      </section>
+      </section> */}
     </div>
   );
 }
