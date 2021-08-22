@@ -1,4 +1,3 @@
-import React from "react";
 import addDays from "date-fns/addDays";
 import { format } from "date-fns";
 
@@ -11,38 +10,44 @@ import CorrectRentDay, {
   properDate,
 } from "../calculation/monthComponents/CorrectRentDay";
 
+// List of dates for calculator
 export let List = [];
 
+// create list will do the below:
+// set date and amount
+// push date and amount into list
+// set next date and amount
+// push until run through enough times
 const CreateList = (data, paymentSelectedOption, functionSelectedOption) => {
-  // set date and amount
-  // push date and amount into list
-  // set next date and amount
-  // push until run through enough times
+  // console.log("This is being called from CreateList for Data: ", data);
+  // console.log(
+  //   "This is being called from CreateList for payment Selected Option: ",
+  //   paymentSelectedOption.value
+  // );
+  // console.log(
+  //   "This is being called from CreateList for function Selected Option: ",
+  //   functionSelectedOption.value
+  // );
 
-  console.log("This is being called from CreateList for Data: ", data);
-  console.log(
-    "This is being called from CreateList for payment Selected Option: ",
-    paymentSelectedOption.value
-  );
-  console.log(
-    "This is being called from CreateList for function Selected Option: ",
-    functionSelectedOption.value
-  );
-
+  // variables for getDate function
   let date = data.ReactDatePicker;
   let amount = data.NumberFormat;
   let finalDate = date;
   let finalAmount = amount;
 
-  const getData = (data, functionSelectedOption, paymentSelectedOption) => {
+  // function gets the dates and puts them into List, this will run set amount of times from teh form
+  const getDate = (data, functionSelectedOption, paymentSelectedOption) => {
+    // loop will add dates to list to be printed onto the screen
     for (let i = 0; i < functionSelectedOption.value; i++) {
-      console.log("What is the paymentSelectedOption: ", paymentSelectedOption);
+      // console.log("What is the paymentSelectedOption: ", paymentSelectedOption);
       const key = i;
 
-      console.log("Get data has started");
-      console.log("for statement has started");
+      // console.log("Get data has started");
+      // console.log("for statement has started");
+
       if (paymentSelectedOption.value === 1) {
-        console.log("Fortnightly if statement is called");
+        // statement for fortnight choice from form
+        // console.log("Fortnightly if statement is called");
         // converts rent amount into variable
         finalAmount = amount * 2;
         // adds 7 days to passed in date
@@ -51,7 +56,8 @@ const CreateList = (data, paymentSelectedOption, functionSelectedOption) => {
         date = newDate;
         finalDate = format(newDate, "dd/MM/yyyy");
       } else if (paymentSelectedOption.value === 2) {
-        console.log("Monthly if statement is called");
+        // statement for monthly choice from form
+        // console.log("Monthly if statement is called");
         // variable from input, rent cost for the month
         const monthlyRent = amount;
 
@@ -74,7 +80,8 @@ const CreateList = (data, paymentSelectedOption, functionSelectedOption) => {
         date = properDate;
         finalAmount = monthAmount;
       } else {
-        console.log("else statement is being called");
+        // statement for weekly choice from form
+        // console.log("else statement is being called");
         finalAmount = amount * 1;
         // adds 7 days to passed in date
         const newDate = addDays(date, 7);
@@ -82,7 +89,7 @@ const CreateList = (data, paymentSelectedOption, functionSelectedOption) => {
         date = newDate;
         finalDate = format(newDate, "dd/MM/yyyy");
       }
-      console.log("if statement has finished");
+      // console.log("if statement has finished");
 
       List.push({ key, finalDate, finalAmount });
       //   console.log("This is from getData, Data is: ", data);
@@ -93,10 +100,10 @@ const CreateList = (data, paymentSelectedOption, functionSelectedOption) => {
       //   );
     }
   };
-  getData(data, functionSelectedOption, paymentSelectedOption);
-  console.log("This is the List from CreateList: ", List);
+  getDate(data, functionSelectedOption, paymentSelectedOption);
+  // console.log("This is the List from CreateList: ", List);
 
-  return <div></div>;
+  return List;
 };
 
 export default CreateList;
